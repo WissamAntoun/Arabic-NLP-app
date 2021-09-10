@@ -1,9 +1,10 @@
 import awesome_streamlit as ast
 import streamlit as st
 
-import backend.aragpt
-import backend.home
-import backend.processor
+with st.spinner(f"Loading App ..."):
+    import backend.aragpt
+    import backend.home
+    import backend.processor
 
 st.set_page_config(
     page_title="TEST", page_icon="📖", initial_sidebar_state="expanded", layout="wide"
