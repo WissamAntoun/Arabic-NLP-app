@@ -1,5 +1,5 @@
 ---
-title: Arabic GPT2 (AraGPT2)
+title: Arabic NLP Demo
 emoji: ⌨
 colorFrom: purple
 colorTo: green

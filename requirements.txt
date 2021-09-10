@@ -4,3 +4,4 @@ python-bidi==0.4.2
 PyArabic
 farasapy==0.0.14
 emoji==1.4.2
+awesome_streamlit
