@@ -122,8 +122,7 @@ def write():
 
     st.sidebar.title("Model Selector")
     model_selector = st.sidebar.selectbox(
-        """Select None to enable further filters""",
-        options=MODELS_to_SELECT,
+        """Select None to enable further filters""", options=MODELS_to_SELECT, index=3
     )
     if model_selector == "None":
         keep_emojis = st.sidebar.checkbox("Keep emojis", False)
