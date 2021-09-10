@@ -101,7 +101,7 @@ def _desegmentword(orig_word: str) -> str:
 
 
 def write():
-    col1, _ = st.columns(2)
+    _, col1, _ = st.columns(3)
 
     with col1:
         col1.title("Arabic Text Pre-Processor")
@@ -120,26 +120,30 @@ def write():
         value="ولن نبالغ إذا قلنا: إن 'هاتف' أو 'كمبيوتر المكتب' في زمننا هذا ضروري",
     )
 
-    aligning_cols = st.columns(5)
-    model_selector = aligning_cols[0].selectbox("Model", options=MODELS_to_SELECT)
-    aligning_cols[1].write("#")
-    aligning_cols[1].write("Select None to enable further filters")
+    st.sidebar.title("Model Selector")
+    model_selector = st.sidebar.selectbox(
+        """Select None to enable further filters""",
+        options=MODELS_to_SELECT,
+    )
     if model_selector == "None":
-        cols = st.columns(5)
-        keep_emojis = cols[0].checkbox("Keep emojis", False)
-        remove_html_markup = cols[0].checkbox("Remove html markup", True)
-        strip_tashkeel = cols[1].checkbox("Strip tashkeel", True)
-        replace_urls_emails_mentions = cols[1].checkbox("Replace urls and emails", True)
-        strip_tatweel = cols[2].checkbox("Strip tatweel", True)
-        insert_white_spaces = cols[2].checkbox("Insert white spaces", True)
-        remove_non_digit_repetition = cols[3].checkbox(
+        keep_emojis = st.sidebar.checkbox("Keep emojis", False)
+        remove_html_markup = st.sidebar.checkbox("Remove html markup", True)
+        strip_tashkeel = st.sidebar.checkbox("Strip tashkeel", True)
+        replace_urls_emails_mentions = st.sidebar.checkbox(
+            "Replace urls and emails", True
+        )
+        strip_tatweel = st.sidebar.checkbox("Strip tatweel", True)
+        insert_white_spaces = st.sidebar.checkbox("Insert white spaces", True)
+        remove_non_digit_repetition = st.sidebar.checkbox(
             "Remove non-digit repetition", True
         )
-        replace_slash_with_dash = cols[3].checkbox("Replace slash with dash", None)
-        map_hindi_numbers_to_arabic = cols[4].checkbox(
+        replace_slash_with_dash = st.sidebar.checkbox("Replace slash with dash", None)
+        map_hindi_numbers_to_arabic = st.sidebar.checkbox(
             "Map hindi numbers to arabic", None
         )
-        apply_farasa_segmentation = cols[4].checkbox("Apply farasa segmentation", None)
+        apply_farasa_segmentation = st.sidebar.checkbox(
+            "Apply farasa segmentation", None
+        )
 
     run_preprocessor = st.button("Run Pre-Processor")
 

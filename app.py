@@ -11,14 +11,14 @@ st.set_page_config(
 PAGES = {"Home": pages.home, "Arabic Text Preprocessor": pages.processor}
 
 
-def main():
-    """Main function."""
-    st.sidebar.title("Navigation")
-    selection = st.sidebar.radio("Pages", list(PAGES.keys()))
+st.sidebar.title("Navigation")
+selection = st.sidebar.radio("Pages", list(PAGES.keys()))
 
-    page = PAGES[selection]
+page = PAGES[selection]
+with st.spinner(f"Loading {selection} ..."):
     ast.shared.components.write_page(page)
 
-
-if __name__ == "__main__":
-    main()
+st.sidebar.header("Info")
+st.sidebar.write("Made by [Wissam Antoun](https://twitter.com/wissam_antoun)")
+st.sidebar.write("[Models Repo](https://github.com/aub-mind/arabert)")
+st.sidebar.write("Source Code [GitHub](https://github.com/WissamAntoun/Arabic-NLP-app)")
