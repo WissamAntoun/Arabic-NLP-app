@@ -101,7 +101,7 @@ def _desegmentword(orig_word: str) -> str:
 
 
 def write():
-    _, col1, _ = st.columns(3)
+    _, col1, _ = st.beta_columns(3)
 
     with col1:
         col1.title("Arabic Text Pre-Processor")

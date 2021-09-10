@@ -18,7 +18,7 @@ def write():
     """
     )
     st.markdown("#")
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.beta_columns(3)
 
     col1.write("## **AraBERT**")
     col1.image("images/arabert_logo.png", width=200)
