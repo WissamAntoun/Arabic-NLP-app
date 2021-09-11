@@ -18,9 +18,4 @@ def write():
         with st.spinner("Predicting..."):
             prediction, scores = predictor.get_preds_from_sarcasm([input_text])
             st.write(f"Result: {prediction[0]}")
-            detailed_score = {
-                "Sarcastic": scores[0][0],
-                "Not_Sarcastic": scores[0][1],
-            }
-            st.write("All scores:")
-            st.write(detailed_score)
+            st.write(f"Score: {scores[0]}")

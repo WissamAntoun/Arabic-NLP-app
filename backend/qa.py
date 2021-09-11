@@ -8,7 +8,7 @@ def write():
     _, col1, _ = st.beta_columns(3)
 
     with col1:
-        st.image("is2alni_logo.png", width=200)
+        st.image("images/is2alni_logo.png", width=200)
         st.title("إسألني أي شيء")
 
     st.markdown(
