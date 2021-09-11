@@ -1,11 +1,9 @@
 import json
 import os
-
 import requests
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, pipeline, set_seed
 from .modeling_gpt2 import GPT2LMHeadModel as GROVERLMHeadModel
 from .preprocess import ArabertPreprocessor
-
 
 # Taken and Modified from https://huggingface.co/spaces/flax-community/chef-transformer/blob/main/app.py
 class TextGeneration:
