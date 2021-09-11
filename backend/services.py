@@ -190,7 +190,7 @@ class SentimentAnalyzer:
             "sar_trial10",
             "sa_no_AOA",
         ]
-        self.model_repos = download_models(self.sa_models)
+        download_models(self.sa_models)
         # fmt: off
         self.processors = {
             "sa_trial5_1": Trial5ArabicPreprocessor(model_name='UBC-NLP/MARBERT'),
@@ -202,12 +202,12 @@ class SentimentAnalyzer:
         }
 
         self.pipelines = {
-            "sa_trial5_1": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format(self.model_repos["sa_trial5_1"],i), device=-1,return_all_scores =True) for i in range(0,5)],
-            "sa_no_aoa_in_neutral": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format(self.model_repos["sa_no_aoa_in_neutral"],i), device=-1,return_all_scores =True) for i in range(0,5)],
-            "sa_cnnbert": [CNNTextClassificationPipeline("{}/train_{}/best_model".format(self.model_repos["sa_cnnbert"],i), device=-1, return_all_scores =True) for i in range(0,5)],
-            "sa_sarcasm": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format(self.model_repos["sa_sarcasm"],i), device=-1,return_all_scores =True) for i in range(0,5)],
-            "sar_trial10": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format(self.model_repos["sar_trial10"],i), device=-1,return_all_scores =True) for i in range(0,5)],
-            "sa_no_AOA": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format(self.model_repos["sa_no_aoa_in_neutral"],i), device=-1,return_all_scores =True) for i in range(0,5)],
+            "sa_trial5_1": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_trial5_1",i), device=-1,return_all_scores =True) for i in range(0,5)],
+            "sa_no_aoa_in_neutral": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_no_aoa_in_neutral",i), device=-1,return_all_scores =True) for i in range(0,5)],
+            "sa_cnnbert": [CNNTextClassificationPipeline("{}/train_{}/best_model".format("sa_cnnbert",i), device=-1, return_all_scores =True) for i in range(0,5)],
+            "sa_sarcasm": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_sarcasm",i), device=-1,return_all_scores =True) for i in range(0,5)],
+            "sar_trial10": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sar_trial10",i), device=-1,return_all_scores =True) for i in range(0,5)],
+            "sa_no_AOA": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_no_AOA",i), device=-1,return_all_scores =True) for i in range(0,5)],
         }
         # fmt: on
 
