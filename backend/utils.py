@@ -1,5 +1,4 @@
 import psutil
-from huggingface_hub import Repository
 import os
 
 
@@ -11,15 +10,29 @@ def get_current_ram_usage():
 def download_models(models):
     model_dirs = {}
     for model in models:
-        model_dirs[model] = Repository(
-            model, clone_from=f"https://huggingface.co/researchaccount/{model}"
-        )
+        model_dirs = {
+            model: model
+        }  # useless i know, but i don't want to change the code
+        for i in range(0, 5):
+            curr_dir = f"{model}/train_{i}/best_model/"
+            os.makedirs(curr_dir)
+            os.system(
+                f"wget https://huggingface.co/researchaccount/{model}/resolve/main/train_{i}/best_model/config.json -P {curr_dir}"
+            )
+            os.system(
+                f"wget https://huggingface.co/researchaccount/{model}/resolve/main/train_{i}/best_model/pytorch_model.bin -P {curr_dir}"
+            )
+            os.system(
+                f"wget https://huggingface.co/researchaccount/{model}/resolve/main/train_{i}/best_model/special_tokens_map.json -P {curr_dir}"
+            )
+            os.system(
+                f"wget https://huggingface.co/researchaccount/{model}/resolve/main/train_{i}/best_model/tokenizer_config.json -P {curr_dir}"
+            )
+            os.system(
+                f"wget https://huggingface.co/researchaccount/{model}/resolve/main/train_{i}/best_model/training_args.bin -P {curr_dir}"
+            )
+            os.system(
+                f"wget https://huggingface.co/researchaccount/{model}/resolve/main/train_{i}/best_model/vocab.txt -P {curr_dir}"
+            )
+
     return model_dirs
-
-
-def install_git_lfs():
-    os.system(
-        "curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash"
-    )
-    os.system("apt-get install git-lfs")
-    os.system("git lfs install")
