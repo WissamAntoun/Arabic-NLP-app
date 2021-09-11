@@ -18,6 +18,8 @@ def download_models(models):
 
 
 def install_git_lfs():
-
-    os.system("chmod -R 777 /home/user/app/.git/hooks/")
+    os.system(
+        "curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash"
+    )
+    os.system("apt-get install git-lfs")
     os.system("git lfs install")
