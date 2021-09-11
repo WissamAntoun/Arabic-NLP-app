@@ -18,5 +18,4 @@ def download_models(models):
 
 
 def install_git_lfs():
-    os.system("apt-get install git-lfs")
     os.system("git lfs install")
