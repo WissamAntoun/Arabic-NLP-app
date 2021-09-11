@@ -1,6 +1,9 @@
 import psutil
 import os
 from tqdm.auto import tqdm
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def get_current_ram_usage():
@@ -10,6 +13,7 @@ def get_current_ram_usage():
 
 def download_models(models):
     for model in tqdm(models, desc="Downloading models"):
+        logger.info(f"Downloading {model}")
         for i in range(0, 5):
             curr_dir = f"{model}/train_{i}/best_model/"
             os.makedirs(curr_dir)
