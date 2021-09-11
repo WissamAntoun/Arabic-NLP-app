@@ -1,6 +1,7 @@
 import streamlit as st
 
-from qa_utils import annotate_answer, get_qa_answers
+from .qa_utils import annotate_answer
+from .services import get_qa_answers
 
 
 def write():

@@ -1,28 +1,31 @@
 import json
-import os
-from typing import List
 import logging
+import os
+from functools import lru_cache
+from typing import List
+from urllib.parse import unquote
+
 import more_itertools
 import pandas as pd
 import requests
-from tqdm.auto import tqdm
-from transformers import GPT2LMHeadModel, GPT2Tokenizer, pipeline, set_seed
-
-from .modeling_gpt2 import GPT2LMHeadModel as GROVERLMHeadModel
-from .preprocess import ArabertPreprocessor
-from .sa_utils import *
-from .utils import download_models, softmax
-
-from functools import lru_cache
-from urllib.parse import unquote
-
 import streamlit as st
 import wikipedia
 from codetiming import Timer
 from fuzzysearch import find_near_matches
 from googleapi import google
-from transformers import AutoTokenizer
+from tqdm.auto import tqdm
+from transformers import (
+    AutoTokenizer,
+    GPT2LMHeadModel,
+    GPT2Tokenizer,
+    pipeline,
+    set_seed,
+)
 
+from .modeling_gpt2 import GPT2LMHeadModel as GROVERLMHeadModel
+from .preprocess import ArabertPreprocessor
+from .sa_utils import *
+from .utils import download_models, softmax
 
 logger = logging.getLogger(__name__)
 # Taken and Modified from https://huggingface.co/spaces/flax-community/chef-transformer/blob/main/app.py
