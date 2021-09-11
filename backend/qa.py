@@ -23,7 +23,7 @@ def write():
     )
 
     st.sidebar.header("Info")
-    st.sidebar.image("AraELECTRA.png", width=150)
+    st.sidebar.image("images/AraELECTRA.png", width=150)
     st.sidebar.write("Powered by [AraELECTRA](https://github.com/aub-mind/arabert)")
 
     st.sidebar.write("\n")
