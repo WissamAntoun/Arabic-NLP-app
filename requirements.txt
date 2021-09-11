@@ -8,3 +8,5 @@ awesome_streamlit
 torch==1.9.0
 transformers==4.10.0
 psutil==5.8.0
+fuzzysearch==0.7.3
+more-itertools==8.9.0
