@@ -1,3 +1,4 @@
+import re
 import numpy as np
 import psutil
 import os
@@ -40,3 +41,24 @@ def download_models(models):
 
 def softmax(x):
     return np.exp(x) / sum(np.exp(x))
+
+
+def ga(file):
+    code = """
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NH9HWCW08F"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NH9HWCW08F');
+    </script>
+    """
+
+    a = os.path.dirname(file) + "/static/index.html"
+    with open(a, "r") as f:
+        data = f.read()
+        if len(re.findall("G-", data)) == 0:
+            with open(a, "w") as ff:
+                newdata = re.sub("<head>", "<head>" + code, data)
+                ff.write(newdata)
