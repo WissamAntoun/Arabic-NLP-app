@@ -1,11 +1,14 @@
 import awesome_streamlit as ast
 import streamlit as st
 
+from backend.utils import get_current_ram_usage, install_git_lfs
+
+install_git_lfs()
+
 import backend.aragpt
 import backend.home
 import backend.processor
 import backend.sa
-from backend.utils import get_current_ram_usage
 
 st.set_page_config(
     page_title="TEST", page_icon="📖", initial_sidebar_state="expanded", layout="wide"
