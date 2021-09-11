@@ -1,3 +1,4 @@
+import numpy as np
 import psutil
 import os
 from tqdm.auto import tqdm
@@ -35,3 +36,7 @@ def download_models(models):
             os.system(
                 f"wget -q https://huggingface.co/researchaccount/{model}/resolve/main/train_{i}/best_model/vocab.txt -P {curr_dir}"
             )
+
+
+def softmax(x):
+    return np.exp(x) / sum(np.exp(x))

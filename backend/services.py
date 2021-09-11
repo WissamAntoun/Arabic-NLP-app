@@ -11,7 +11,7 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer, pipeline, set_seed
 from .modeling_gpt2 import GPT2LMHeadModel as GROVERLMHeadModel
 from .preprocess import ArabertPreprocessor
 from .sa_utils import *
-from .utils import download_models
+from .utils import download_models, softmax
 
 # Taken and Modified from https://huggingface.co/spaces/flax-community/chef-transformer/blob/main/app.py
 class TextGeneration:
@@ -344,6 +344,8 @@ class SentimentAnalyzer:
                 id_label_map[np.argmax([pos_score, neu_score, neg_score])]
             )
             final_ensemble_score.append(np.max([pos_score, neu_score, neg_score]))
-            final_ensemble_all_score.append((pos_score, neu_score, neg_score))
+            final_ensemble_all_score.append(
+                softmax(np.array([pos_score, neu_score, neg_score])).tolist()
+            )
 
         return final_ensemble_prediction, final_ensemble_score, final_ensemble_all_score
