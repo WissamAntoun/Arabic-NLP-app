@@ -21,5 +21,5 @@ def install_git_lfs():
     os.system(
         "curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash"
     )
-    os.system("sudo apt-get install git-lfs")
+    os.system("apt-get install git-lfs")
     os.system("git lfs install")
