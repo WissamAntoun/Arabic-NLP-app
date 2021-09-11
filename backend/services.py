@@ -1,7 +1,7 @@
 import json
 import os
 from typing import List
-
+import logging
 import more_itertools
 import pandas as pd
 import requests
@@ -13,6 +13,7 @@ from .preprocess import ArabertPreprocessor
 from .sa_utils import *
 from .utils import download_models, softmax
 
+logger = logging.getLogger(__name__)
 # Taken and Modified from https://huggingface.co/spaces/flax-community/chef-transformer/blob/main/app.py
 class TextGeneration:
     def __init__(self):
@@ -244,6 +245,7 @@ class SentimentAnalyzer:
         return final_labels, final_scores
 
     def get_preds_from_a_model(self, texts: List[str], model_name):
+
         prep = self.processors[model_name]
 
         prep_texts = [prep.preprocess(x) for x in texts]
@@ -257,7 +259,7 @@ class SentimentAnalyzer:
         preds_df = pd.DataFrame([])
         for i in range(0, 5):
             preds = []
-            for s in tqdm(more_itertools.chunked(list(prep_texts), 128)):
+            for s in more_itertools.chunked(list(prep_texts), 128):
                 preds.extend(self.pipelines[model_name][i](s))
             preds_df[f"model_{i}"] = preds
 
@@ -295,6 +297,7 @@ class SentimentAnalyzer:
         return final_labels, final_scores, final_scores_list
 
     def predict(self, texts: List[str]):
+        logger.info(f"Predicting for: {texts}")
         (
             new_balanced_label,
             new_balanced_score,
@@ -348,4 +351,7 @@ class SentimentAnalyzer:
                 softmax(np.array([pos_score, neu_score, neg_score])).tolist()
             )
 
+        logger.info(f"Result: {final_ensemble_prediction}")
+        logger.info(f"Score: {final_ensemble_score}")
+        logger.info(f"All Scores: {final_ensemble_all_score}")
         return final_ensemble_prediction, final_ensemble_score, final_ensemble_all_score

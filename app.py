@@ -3,7 +3,7 @@ import streamlit as st
 
 from backend.utils import get_current_ram_usage
 
-# import backend.aragpt
+import backend.aragpt
 import backend.home
 import backend.processor
 import backend.sa
@@ -15,7 +15,7 @@ st.set_page_config(
 PAGES = {
     "Home": backend.home,
     "Arabic Text Preprocessor": backend.processor,
-    # "Arabic Language Generation": backend.aragpt,
+    "Arabic Language Generation": backend.aragpt,
     "Arabic Sentiment Analysis": backend.sa,
 }
 
