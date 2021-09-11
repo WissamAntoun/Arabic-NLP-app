@@ -17,3 +17,6 @@ def write():
     if st.button("Predict"):
         with st.spinner("Predicting..."):
             prediction, score, all_score = predictor.predict([input_text])
+            st.write(f"Prediction: {prediction}")
+            st.write(f"Score: {score}")
+            st.write(f"All scores: {all_score}")
