@@ -6,4 +6,4 @@ farasapy==0.0.14
 emoji==1.4.2
 awesome_streamlit
 torch
-transformers==4.2.1
+transformers==4.10.0
