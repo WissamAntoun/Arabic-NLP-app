@@ -1,9 +1,7 @@
 import awesome_streamlit as ast
 import streamlit as st
 
-from backend.utils import get_current_ram_usage, install_git_lfs
-
-install_git_lfs()
+from backend.utils import get_current_ram_usage
 
 # import backend.aragpt
 import backend.home
