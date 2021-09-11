@@ -18,4 +18,6 @@ def download_models(models):
 
 
 def install_git_lfs():
+    os.system("git lfs update --force")
     os.system("git lfs install")
+    os.system("git lfs update --force")
