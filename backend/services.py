@@ -248,7 +248,7 @@ class SentimentAnalyzer:
 
         prep_texts = [prep.preprocess(x) for x in texts]
         if model_name == "sa_sarcasm":
-            sarcasm_label, _ = self.get_preds_from_sarcasm(texts, "sar_trial10")
+            sarcasm_label, _ = self.get_preds_from_sarcasm(texts)
             sarcastic_map = {"Not_Sarcastic": "غير ساخر", "Sarcastic": "ساخر"}
             labeled_prep_texts = []
             for t, l in zip(prep_texts, sarcasm_label):
