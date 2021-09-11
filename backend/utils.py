@@ -19,5 +19,5 @@ def download_models(models):
 
 def install_git_lfs():
 
-    os.system("chmod a+rwx /home/user/app/.git/hooks/pre-push")
+    os.system("chmod -R 777 /home/user/app/.git/hooks/pre-push")
     os.system("git lfs install")
