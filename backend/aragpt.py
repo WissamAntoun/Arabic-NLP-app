@@ -81,7 +81,7 @@ def write():
         help="The parameter for repetition penalty. 1.0 means no penalty",
     )
     no_repeat_ngram_size = st.sidebar.number_input(
-        "No Repear N-Gram Size",
+        "No Repeat N-Gram Size",
         min_value=0,
         value=3,
         help="If set to int > 0, all ngrams of that size can only occur once.",
@@ -161,14 +161,14 @@ def write():
     is_date = st.checkbox("Help the model: Is the answer a date?")
     if st.button("Answer"):
 
-        prompt = qa_prompt + question + qa_prompt_post
+        prompt2 = qa_prompt + question + qa_prompt_post
         if is_date:
-            prompt += qa_prompt_post_year
+            prompt2 += qa_prompt_post_year
         else:
-            prompt += " : "
+            prompt2 += " : "
         with st.spinner("Thinking..."):
             answer = generator.generate(
-                prompt=prompt,
+                prompt=prompt2,
                 model_name=model_name,
                 max_new_tokens=max_new_tokens,
                 temperature=temp,
