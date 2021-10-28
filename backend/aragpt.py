@@ -21,6 +21,15 @@ qa_prompt_post_year = """ في سنة: """
 
 
 def write():
+    st.markdown(
+        """
+        # Arabic Language Generation:
+
+        Generate Arabic text using our AraGPT2 language models. You can also try AraGPT2 Zero-Shot QA capabilities.
+        Please be patient with the Mega model :)
+
+        """
+    )
     # Sidebar
 
     # Taken from https://huggingface.co/spaces/flax-community/spanish-gpt2/blob/main/app.py

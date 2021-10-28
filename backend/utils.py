@@ -18,7 +18,7 @@ def download_models(models):
         logger.info(f"Downloading {model}")
         for i in range(0, 5):
             curr_dir = f"{model}/train_{i}/best_model/"
-            os.makedirs(curr_dir)
+            os.makedirs(curr_dir, exist_ok=True)
             os.system(
                 f"wget -q https://huggingface.co/researchaccount/{model}/resolve/main/train_{i}/best_model/config.json -P {curr_dir}"
             )
