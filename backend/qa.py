@@ -5,7 +5,7 @@ from .services import get_qa_answers
 
 
 def write():
-    _, col1, _ = st.beta_columns(3)
+    _, col1, _ = st.columns(3)
 
     with col1:
         st.image("images/is2alni_logo.png", width=200)
