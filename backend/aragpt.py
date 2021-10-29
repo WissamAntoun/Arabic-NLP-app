@@ -21,10 +21,12 @@ qa_prompt_post_year = """ في سنة: """
 
 
 def write():
-    _, col1, _ = st.columns(3)
-
-    with col1:
-        col1.title("Arabic Language Generation")
+    st.markdown(
+        """
+        <h1 style="text-align:left;">Arabic Language Generation</h1>
+        """,
+        unsafe_allow_html=True,
+    )
 
     # Sidebar
 

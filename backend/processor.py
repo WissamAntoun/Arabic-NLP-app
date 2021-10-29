@@ -101,10 +101,13 @@ def _desegmentword(orig_word: str) -> str:
 
 
 def write():
-    _, col1, _ = st.columns(3)
 
-    with col1:
-        col1.title("Arabic Text Pre-Processor")
+    st.markdown(
+        """
+        <h1 style="text-align:left;">Arabic Text Pre-Processor</h1>
+        """,
+        unsafe_allow_html=True,
+    )
     st.markdown(
         """
         <style>
