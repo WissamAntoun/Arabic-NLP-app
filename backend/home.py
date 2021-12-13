@@ -5,7 +5,9 @@ import awesome_streamlit as ast
 def write():
     st.markdown(
         """
-    # Arabic Natural Language Processing
+    # Arabic Natural Language
+
+    ![visitors](https://visitor-badge.glitch.me/badge?page_id=wissamantoun.arabicnlpapp)
 
 
     In this HuggingFace space you will be able to test the different Arabic NLP models that my colleges at [AUB MIND Lab](https://sites.aub.edu.lb/mindlab/) have built, with some other applications.
