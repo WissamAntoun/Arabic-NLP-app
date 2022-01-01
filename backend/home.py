@@ -5,7 +5,7 @@ import awesome_streamlit as ast
 def write():
     st.markdown(
         """
-    # Arabic Natural Language
+    # Arabic Natural Language Processing
 
     ![visitors](https://visitor-badge.glitch.me/badge?page_id=wissamantoun.arabicnlpapp)
 
