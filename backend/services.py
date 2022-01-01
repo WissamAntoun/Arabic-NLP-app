@@ -203,30 +203,30 @@ class SentimentAnalyzer:
     def __init__(self):
         self.sa_models = [
             "sa_trial5_1",
-            "sa_no_aoa_in_neutral",
-            "sa_cnnbert",
-            "sa_sarcasm",
-            "sar_trial10",
-            "sa_no_AOA",
+            # "sa_no_aoa_in_neutral",
+            # "sa_cnnbert",
+            # "sa_sarcasm",
+            # "sar_trial10",
+            # "sa_no_AOA",
         ]
         download_models(self.sa_models)
         # fmt: off
         self.processors = {
             "sa_trial5_1": Trial5ArabicPreprocessor(model_name='UBC-NLP/MARBERT'),
-            "sa_no_aoa_in_neutral": NewArabicPreprocessorBalanced(model_name='UBC-NLP/MARBERT'),
-            "sa_cnnbert": CNNMarbertArabicPreprocessor(model_name='UBC-NLP/MARBERT'),
-            "sa_sarcasm": SarcasmArabicPreprocessor(model_name='UBC-NLP/MARBERT'),
-            "sar_trial10": SarcasmArabicPreprocessor(model_name='UBC-NLP/MARBERT'),
-            "sa_no_AOA": NewArabicPreprocessorBalanced(model_name='UBC-NLP/MARBERT'),
+            # "sa_no_aoa_in_neutral": NewArabicPreprocessorBalanced(model_name='UBC-NLP/MARBERT'),
+            # "sa_cnnbert": CNNMarbertArabicPreprocessor(model_name='UBC-NLP/MARBERT'),
+            # "sa_sarcasm": SarcasmArabicPreprocessor(model_name='UBC-NLP/MARBERT'),
+            # "sar_trial10": SarcasmArabicPreprocessor(model_name='UBC-NLP/MARBERT'),
+            # "sa_no_AOA": NewArabicPreprocessorBalanced(model_name='UBC-NLP/MARBERT'),
         }
 
         self.pipelines = {
             "sa_trial5_1": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_trial5_1",i), device=-1,return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sa_trial5_1")],
-            "sa_no_aoa_in_neutral": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_no_aoa_in_neutral",i), device=-1,return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sa_no_aoa_in_neutral")],
-            "sa_cnnbert": [CNNTextClassificationPipeline("{}/train_{}/best_model".format("sa_cnnbert",i), device=-1, return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sa_cnnbert")],
-            "sa_sarcasm": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_sarcasm",i), device=-1,return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sa_sarcasm")],
-            "sar_trial10": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sar_trial10",i), device=-1,return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sar_trial10")],
-            "sa_no_AOA": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_no_AOA",i), device=-1,return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sa_no_AOA")],
+            # "sa_no_aoa_in_neutral": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_no_aoa_in_neutral",i), device=-1,return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sa_no_aoa_in_neutral")],
+            # "sa_cnnbert": [CNNTextClassificationPipeline("{}/train_{}/best_model".format("sa_cnnbert",i), device=-1, return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sa_cnnbert")],
+            # "sa_sarcasm": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_sarcasm",i), device=-1,return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sa_sarcasm")],
+            # "sar_trial10": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sar_trial10",i), device=-1,return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sar_trial10")],
+            # "sa_no_AOA": [pipeline("sentiment-analysis", model="{}/train_{}/best_model".format("sa_no_AOA",i), device=-1,return_all_scores =True) for i in tqdm(range(0,5), desc=f"Loading pipeline for model: sa_no_AOA")],
         }
         # fmt: on
 
@@ -324,25 +324,25 @@ class SentimentAnalyzer:
 
     def predict(self, texts: List[str]):
         logger.info(f"Predicting for: {texts}")
-        (
-            new_balanced_label,
-            new_balanced_score,
-            new_balanced_score_list,
-        ) = self.get_preds_from_a_model(texts, "sa_no_aoa_in_neutral")
-        (
-            cnn_marbert_label,
-            cnn_marbert_score,
-            cnn_marbert_score_list,
-        ) = self.get_preds_from_a_model(texts, "sa_cnnbert")
+        # (
+        #     new_balanced_label,
+        #     new_balanced_score,
+        #     new_balanced_score_list,
+        # ) = self.get_preds_from_a_model(texts, "sa_no_aoa_in_neutral")
+        # (
+        #     cnn_marbert_label,
+        #     cnn_marbert_score,
+        #     cnn_marbert_score_list,
+        # ) = self.get_preds_from_a_model(texts, "sa_cnnbert")
         trial5_label, trial5_score, trial5_score_list = self.get_preds_from_a_model(
             texts, "sa_trial5_1"
         )
-        no_aoa_label, no_aoa_score, no_aoa_score_list = self.get_preds_from_a_model(
-            texts, "sa_no_AOA"
-        )
-        sarcasm_label, sarcasm_score, sarcasm_score_list = self.get_preds_from_a_model(
-            texts, "sa_sarcasm"
-        )
+        # no_aoa_label, no_aoa_score, no_aoa_score_list = self.get_preds_from_a_model(
+        #     texts, "sa_no_AOA"
+        # )
+        # sarcasm_label, sarcasm_score, sarcasm_score_list = self.get_preds_from_a_model(
+        #     texts, "sa_sarcasm"
+        # )
 
         id_label_map = {0: "Positive", 1: "Neutral", 2: "Negative"}
 
@@ -350,11 +350,11 @@ class SentimentAnalyzer:
         final_ensemble_score = []
         final_ensemble_all_score = []
         for entry in zip(
-            new_balanced_score_list,
-            cnn_marbert_score_list,
+            # new_balanced_score_list,
+            # cnn_marbert_score_list,
             trial5_score_list,
-            no_aoa_score_list,
-            sarcasm_score_list,
+            # no_aoa_score_list,
+            # sarcasm_score_list,
         ):
             pos_score = 0
             neu_score = 0
