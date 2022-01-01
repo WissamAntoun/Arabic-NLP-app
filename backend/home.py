@@ -62,12 +62,14 @@ def write():
         AraBERTv2-large| [bert-large-arabertv2](https://huggingface.co/aubmindlab/bert-large-arabertv2) | 1.38G / 371M | Yes | TPUv3-128 |128 /512 | 13440 / 2056|  250K / 300K | 7 |
         AraBERTv0.1-base| [bert-base-arabertv01](https://huggingface.co/aubmindlab/bert-base-arabertv01) | 543MB / 136M | No | TPUv2-8 |128 /512 |128 / 512 | 900K / 300K| 4 |
         AraBERTv1-base| [bert-base-arabert](https://huggingface.co/aubmindlab/bert-base-arabert) | 543MB / 136M | Yes | TPUv2-8 |128 /512 |128 / 512 | 900K / 300K| 4 |
-        AraGPT2-base | [aragpt2-base](https://huggingface.co/aubmindlab/aragpt2-base) | 527MB/135M | No | TPUv3-128 | 9.7M | 1792 | 125K | 1.5 |
-        AraGPT2-medium | [aragpt2-medium](https://huggingface.co/aubmindlab/aragpt2-medium) |  1.38G/370M  | No |TPUv3-8 | 9.7M | 80 | 1M | 15 |
-        AraGPT2-large | [aragpt2-large](https://huggingface.co/aubmindlab/aragpt2-large) |  2.98GB/792M  | No |TPUv3-128 | 9.7M | 256 | 220k | 3 |
-        AraGPT2-mega | [aragpt2-mega](https://huggingface.co/aubmindlab/aragpt2-mega) |  5.5GB/1.46B  |No |TPUv3-128 | 9.7M | 256 | 800K | 9 |
+        AraGPT2-base | [aragpt2-base](https://huggingface.co/aubmindlab/aragpt2-base) | 527MB/135M | No | TPUv3-128 | 1024 | 1792 | 125K | 1.5 |
+        AraGPT2-medium | [aragpt2-medium](https://huggingface.co/aubmindlab/aragpt2-medium) |  1.38G/370M  | No |TPUv3-8 | 1024 | 80 | 1M | 15 |
+        AraGPT2-large | [aragpt2-large](https://huggingface.co/aubmindlab/aragpt2-large) |  2.98GB/792M  | No |TPUv3-128 | 1024 | 256 | 220k | 3 |
+        AraGPT2-mega | [aragpt2-mega](https://huggingface.co/aubmindlab/aragpt2-mega) |  5.5GB/1.46B  |No |TPUv3-128 | 1024 | 256 | 800K | 9 |
         AraELECTRA-base-generator | [araelectra-base-generator](https://huggingface.co/aubmindlab/araelectra-base-generator) |  227MB/60M  | No | TPUv3-8 | 512 | 256 | 2M | 24
         AraELECTRA-base-discriminator | [araelectra-base-discriminator](https://huggingface.co/aubmindlab/araelectra-base-discriminator) |  516MB/135M  | No | TPUv3-8 | 512 | 256 | 2M | 24
+        AraBERTv0.2-Twitter-base| [bert-base-arabertv02-twitter](https://huggingface.co/aubmindlab/bert-base-arabertv02-twitter) | 543MB / 136M | No | V100 | *64* | - | - | - |
+        AraBERTv0.2-Twitter-large| [bert-large-arabertv02-twitter](https://huggingface.co/aubmindlab/bert-large-arabertv02-twitter) | 1.38G / 371M | No | V100 | *64* | - | - | - |
 
         All models are available in the `HuggingFace` model page under the [aubmindlab](https://huggingface.co/aubmindlab/) name. Checkpoints are available in PyTorch, TF2 and TF1 formats.
 
