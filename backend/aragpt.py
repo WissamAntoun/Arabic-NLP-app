@@ -8,6 +8,7 @@ from functools import lru_cache
 def load_text_generator():
     generator = TextGeneration()
     generator.load()
+
     return generator
 
 
