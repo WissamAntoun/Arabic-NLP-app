@@ -37,8 +37,8 @@ def write():
         "Model Selector",
         options=[
             "AraGPT2-Base",
-            "AraGPT2-Medium",
-            "Aragpt2-Large",
+            # "AraGPT2-Medium",
+            # "Aragpt2-Large",
             "AraGPT2-Mega",
         ],
         index=0,
