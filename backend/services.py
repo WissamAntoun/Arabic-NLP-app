@@ -45,8 +45,8 @@ class TextGeneration:
         #     "aragpt2-base": "D:/ML/Models/aragpt2-base",
         # }
         self.model_names_or_paths = {
-            "aragpt2-medium": "aubmindlab/aragpt2-medium",
-            # "aragpt2-base": "aubmindlab/aragpt2-base",
+            # "aragpt2-medium": "aubmindlab/aragpt2-medium",
+            "aragpt2-base": "aubmindlab/aragpt2-base",
             # "aragpt2-large": "aubmindlab/aragpt2-large",
             "aragpt2-mega": "aubmindlab/aragpt2-mega",
         }
