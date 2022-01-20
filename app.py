@@ -20,7 +20,7 @@ PAGES = {
     "Arabic Text Preprocessor": backend.processor,
     "Arabic Language Generation": backend.aragpt,
     "Arabic Sentiment Analysis": backend.sa,
-    "Arabic Sarcasm Detection": backend.sarcasm,
+    # "Arabic Sarcasm Detection": backend.sarcasm,
     "Arabic Question Answering": backend.qa,
 }
 
