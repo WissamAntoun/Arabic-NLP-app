@@ -16,7 +16,6 @@ def write():
     - Arabic Text Preprocessor: Test how text imput is treated by our preprocessor
     - Arabic Language Generation: Generate Arabic text using our AraGPT2 language models
     - Arabic Sentiment Analysis: Test the senitment analysis model that won the [Arabic Senitment Analysis competition @ KAUST](https://www.kaggle.com/c/arabic-sentiment-analysis-2021-kaust)
-    - Arabic Sarcasm Detection: Test MARBERT trained for sarcasm detection
     - Arabic Question Answering: Test our AraELECTRA QA capabilities
     """
     )

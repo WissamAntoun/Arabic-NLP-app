@@ -8,7 +8,6 @@ import backend.home
 import backend.processor
 import backend.sa
 import backend.qa
-import backend.sarcasm
 
 st.set_page_config(
     page_title="TEST", page_icon="📖", initial_sidebar_state="expanded", layout="wide"
